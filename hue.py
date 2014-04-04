@@ -26,7 +26,7 @@ if __name__ == '__main__':
     for light in response1:
         url_to_call = base_url+"/api/dog-gateway/lights/"+light+"/state"
         body = '{"on":true, "effect":"colorloop"}'
-        rest.send('PUT', url_to_call, body, {'Content-type':'application/json'})
+        rest.send('PUT', url_to_call, body, {'Content-Type':'application/json'})
     
     for i in range(0,10):    
         time.sleep(1)
@@ -37,4 +37,4 @@ if __name__ == '__main__':
     for light in response1:
         url_to_call = base_url+"/api/dog-gateway/lights/"+light+"/state"
         body = '{"on":false}'
-        rest.send('PUT', url_to_call, body, {'Content-type':'application/json'})
+        rest.send('PUT', url_to_call, body, {'Content-Type':'application/json'})
