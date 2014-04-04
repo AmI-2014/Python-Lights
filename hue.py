@@ -21,6 +21,7 @@ if __name__ == '__main__':
     
     #get the hue lights
     response1 =  rest.send(url = base_url+'/api/'+username+'/lights')
+    
     # iterate over the hue lights
     for light in response1:
         url_to_call = base_url+"/api/dog-gateway/lights/"+light+"/state"
