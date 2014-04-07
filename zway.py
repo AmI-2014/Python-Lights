@@ -27,14 +27,14 @@ if __name__ == '__main__':
 
     
     #get the zwave devices
-    response =  rest.send(url = base_url+'/ZWaveAPI/Data/0')
+    all_devices =  rest.send(url = base_url+'/ZWaveAPI/Data/0')
 
     #search switches
-    for device_key in response['devices']:
+    for device_key in all_devices['devices']:
         #iterate over device instances
-        for instance in response['devices'][device_key]['instances']:
+        for instance in all_devices['devices'][device_key]['instances']:
             #search for the 37 (SwitchBinary) command class
-            if ('37' in response['devices'][device_key]['instances'][instance]['commandClasses'].keys()):
+            if ('37' in all_devices['devices'][device_key]['instances'][instance]['commandClasses'].keys()):
                 #debug
                 print "device %s is a switch"%device_key
                 #turn it on
@@ -47,11 +47,11 @@ if __name__ == '__main__':
         print 10-i
 
     #search switches
-    for device_key in response['devices'].keys():
+    for device_key in all_devices['devices'].keys():
         #iterate over device instances
-        for instance in response['devices'][device_key]['instances']:
+        for instance in all_devices['devices'][device_key]['instances']:
             #search for the 37 (SwitchBinary) command class
-            if ('37' in response['devices'][device_key]['instances'][instance]['commandClasses'].keys()):
+            if ('37' in all_devices['devices'][device_key]['instances'][instance]['commandClasses'].keys()):
                 #debug
                 print "device %s is a switch"%device_key   
                 #turn it off
