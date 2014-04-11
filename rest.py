@@ -42,8 +42,10 @@ def send(method = 'GET', url=None, data = None, headers = {}):
         if(result != None):
             #decode the result
             result_as_string = result.read().decode('utf8')
-            #convert into a dict
-            response_dict = json.loads(result_as_string)
+            
+            if(result_as_string != ''):
+                #convert the response into a dictionary
+                response_dict = json.loads(result_as_string)
             
     
     return response_dict
